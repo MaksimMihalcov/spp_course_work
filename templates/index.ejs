@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('./partials/head'); %>
+<body>
+    <%- include('./partials/navbar'); %>
+    <div class="mainp">
+        <% articles.forEach(function(article) { %>
+            <div class="component">
+                <h2><%= article.name %></h2>
+                <p><%= article.recipe %></p>
+                <div class="aut">
+                    <em>Author: </em><strong><%= article.author_name %></strong>
+                </div>
+            </div>
+        <% }); %>
+    </div>
+</body>
+<%- include('./partials/footer'); %>
+</html>

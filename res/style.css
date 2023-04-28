@@ -1,0 +1,89 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    background-image: url(/back.jpg);
+    background-size: 50%;
+    background-attachment:fixed;
+    height: 100%;
+}
+
+.lime{
+    margin-top: 7px;
+    max-height: 70px;
+    max-width: 100%;
+}
+
+.nav-correct{
+    margin-top: 10px;
+}
+
+.a-c{
+    font: italic small-caps bold 16px/2 cursive;
+    font-size: 40px;
+}
+
+.a-c:visited{
+    color: #f5d60f;
+}
+
+.mainp{
+    padding-bottom: 20px;
+    padding-top: 20px;
+    //background-color: #0dcaf0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.component{
+    width: 80%;
+    backdrop-filter: blur(3px);
+    //background-color: #d63384;
+    padding-bottom: 20px;
+    padding-left: 10px;
+    padding-right: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    outline: 2px solid #000;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.form_dfy{
+    //background-color: #d63384;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 20px;
+    padding-top: 20px;
+    width: 100%;
+    height: 50em;
+}
+
+.form_dfy form{
+    //background-color: #0dcaf0;
+    width: 80%;
+    height: 80%;
+}
+
+.form_dfy form textarea{
+    height: 200px;
+}
+
+footer {
+    left: 0;
+    bottom: 0; /* Левый нижний угол */
+    background: #313030; /* Цвет фона */
+    color: #555555; /* Цвет текста */
+    width: 100%; /* Ширина слоя */
+    height: 5em;
+    margin-top: 30px;
+}

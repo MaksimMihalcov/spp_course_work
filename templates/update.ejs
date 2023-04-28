@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('./partials/head'); %>
+<body>
+<%- include('./partials/navbar'); %>
+    <h1 class="m-4">Update Task</h1>
+    <form id="taskForm" class="m-4" method="post" action="/update">
+        <input hidden="" type="text" name="taskId" value="<%= model.id %>" />
+        <div class="mb-3">
+            <label for="taskText" class="form-label">Task text</label>
+            <textarea class="form-control" id="taskText" name="taskText" rows="3"><%= model.text %></textarea>
+            <label for="taskText" id="taskTextError" class="text-danger text-bold d-none">Input text!</label>
+        </div>
+        <div class="mb-3">
+            <label for="taskStatus" class="form-label">Status</label>
+            <% if(statuss.length > 0) { %>
+                <select class="form-select" id="taskStatus" name="taskStatus">
+                    <% for(let i = 0; i < statuss.length; i++) { %>
+                        <option <% if(statuss[i] === model.status) { %> selected <% } %> value="<%= statuss[i] %>"><%= statuss[i] %></option>
+                    <% } %>
+                </select>
+            <% } %>
+        </div>
+        <div class="mb-3">
+            <label for="taskDate" class="form-label">Select date</label>
+            <input class="form-control" id="taskDate" name="taskDate" type="date" value="<%= model.completionDate.split('.').reverse().join('-') %>" />
+            <label for="taskDate" id="taskDateError" class="text-danger text-bold d-none">Input date!</label>
+        </div>
+        <button id="submitForm" type="submit" class="btn btn-success">Update</button>
+    </form>
+</body>
+
+<script>
+    let form = document.getElementById('taskForm');
+    let dateError = document.getElementById('taskDateError');
+    let date = document.getElementById('taskDate');
+    let textError = document.getElementById('taskTextError');
+    let text = document.getElementById('taskText');
+
+    socket.on('redirect-update', (path)=>{
+        window.location.href = path;
+    })
+
+    form.addEventListener('submit', (e)=>{
+        e.preventDefault();
+        if(text.value === '') {
+            textError.classList.remove('d-none');
+            return;
+        } else { textError.classList.add('d-none'); }
+        if(date.value === '') {
+            dateError.classList.remove('d-none');
+        } else {
+            dateError.classList.add('d-none');
+            const myFormData = new FormData(form);
+            const formDataObj = {};
+            myFormData.forEach((value, key) => (formDataObj[key] = value));
+            socket.emit('post-update', formDataObj);
+        }
+    });
+
+</script>
+
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('./partials/head'); %>
+<body>
+<%- include('./partials/navbar'); %>
+<h1 class="m-4">Login</h1>
+<form id="loginForm" class="m-4" method="post" action="/login">
+    <div class="mb-3">
+        <label for="emailText" class="form-label">Email</label>
+        <input class="form-control" id="emailText" name="email" type="email"/>
+        <label for="emailText" id="emailTextError" class="text-danger text-bold d-none">Input email!</label>
+    </div>
+    <div class="mb-3">
+        <label for="passwordText" class="form-label">Password</label>
+        <input class="form-control" id="passwordText" name="password" type="password"/>
+        <label for="passwordText" id="passwordTextError" class="text-danger text-bold d-none">Input password!</label>
+    </div>
+    <button id="submitForm" type="submit" class="btn btn-primary">Login</button>
+    <a class="btn btn-primary" href="/register" role="button">Register</a>
+</form>
+</body>
+
+<script>
+    let form = document.getElementById('loginForm');
+    let emailError = document.getElementById('emailTextError');
+    let email = document.getElementById('emailText');
+    let passwordError = document.getElementById('passwordText');
+    let password = document.getElementById('passwordText');
+
+    form.addEventListener('submit', (e)=>{
+        e.preventDefault();
+        if(email.value === '') {
+            emailError.classList.remove('d-none');
+            return;
+        } else { emailError.classList.add('d-none'); }
+        if(password.value === '') {
+            passwordError.classList.remove('d-none');
+        } else {
+            passwordError.classList.add('d-none');
+            form.submit();
+        }
+    });
+
+</script>
+</html>

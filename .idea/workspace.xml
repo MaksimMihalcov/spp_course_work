@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="519730c0-a6a8-44a8-a3ca-002d3661927f" name="Changes" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaScript File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2LgviAhOkj9tbAb9kP5SVxXiM7n" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/ATHIS.PROJECT/SPP/Course_work&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\ATHIS.PROJECT\SPP\Course_work" />
+      <recent name="D:\ATHIS.PROJECT\SPP\SPP41" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\ATHIS.PROJECT\SPP\Course_work\res" />
+      <recent name="D:\ATHIS.PROJECT\SPP\Course_work\templates\partials" />
+      <recent name="D:\ATHIS.PROJECT\SPP\Course_work\templates" />
+    </key>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="519730c0-a6a8-44a8-a3ca-002d3661927f" name="Changes" comment="" />
+      <created>1676305667364</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1676305667364</updated>
+      <workItem from="1676305669999" duration="670000" />
+      <workItem from="1676813598435" duration="3249000" />
+      <workItem from="1677515264938" duration="2340000" />
+      <workItem from="1679078661083" duration="6841000" />
+      <workItem from="1679118251288" duration="1314000" />
+      <workItem from="1679177085560" duration="2000" />
+      <workItem from="1679841472252" duration="14000" />
+      <workItem from="1680244928033" duration="15443000" />
+      <workItem from="1680290648328" duration="8790000" />
+      <workItem from="1680328516875" duration="1126000" />
+      <workItem from="1680733560335" duration="263000" />
+      <workItem from="1680982882542" duration="922000" />
+      <workItem from="1681029164889" duration="97000" />
+      <workItem from="1682248911351" duration="4256000" />
+      <workItem from="1682705386997" duration="13115000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>

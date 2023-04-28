@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('./partials/head'); %>
+<body>
+<%- include('./partials/navbar'); %>
+    <div class="form_dfy">
+        <form id="frm" method="post">
+            <div class="mb-3">
+                <label for="dname" class="form-label">Dish name</label>
+                <input type="text" class="form-control" id="dname" name="dname" oninput="inputsChange();">
+            </div>
+            <div class="mb-3">
+                <label for="recipe" class="form-label">Write you recipe here</label>
+                <textarea class="form-control" id="recipe" name="recipe" rows="3" oninput="inputsChange();"></textarea>
+            </div>
+            <div class="mb-3">
+                <label for="uname" class="form-label">Your name</label>
+                <input type="text" class="form-control" id="uname" name="uname" oninput="inputsChange();">
+                <div class="form-text">All users are seen you name.</div>
+            </div>
+            <div class="d-flex flex-column w-25">
+                <label class="d-none mb-2" id="errorLabel"></label>
+                <button class="btn btn-primary w-50" type="submit" id="sbutton">Submit</button>
+            </div>
+        </form>
+    </div>
+</body>
+<%- include('./partials/footer'); %>
+
+<script type="text/javascript">
+    let errorLabel;
+    document.addEventListener("DOMContentLoaded", function () {
+        errorLabel = document.getElementById('errorLabel');
+    });
+
+    function inputsChange(){
+        errorLabel.classList.add("d-none");
+        errorLabel.classList.remove("text-danger");
+        errorLabel.classList.remove("text-success");
+    }
+
+    $('#frm').submit(function (e){
+        e.preventDefault();
+        let dname = document.getElementById('dname').value.length;
+        let recipe = document.getElementById('recipe').value.length;
+        let uname = document.getElementById('uname').value.length;
+        if (dname > 25 || dname < 1 || recipe < 1 || uname > 25 || uname < 1)
+        {
+            errorLabel.classList.remove("d-none");
+            errorLabel.classList.add("text-danger");
+            errorLabel.innerHTML = "Error!";
+            return;
+        }
+        $.ajax({
+            type: "POST",
+            url: '/add',
+            data: $(this).serialize(),
+            success: ()=> {
+                errorLabel.classList.remove("d-none");
+                errorLabel.classList.add("text-success");
+                errorLabel.innerHTML = "Success!";
+            },
+        });
+    });
+</script>
+</html>

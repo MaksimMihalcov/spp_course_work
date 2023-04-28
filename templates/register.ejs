@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('./partials/head'); %>
+<body>
+<%- include('./partials/navbar'); %>
+<h1 class="m-4">Registration</h1>
+<form id="registerForm" class="m-4" method="post" action="/register">
+    <div class="mb-3">
+        <label for="emailText" class="form-label">Email</label>
+        <input class="form-control" id="emailText" name="email" type="email"/>
+        <label for="emailText" id="emailTextError" class="text-danger text-bold d-none">Input email!</label>
+    </div>
+    <div class="mb-3">
+        <label for="passwordText" class="form-label">Password</label>
+        <input class="form-control" id="passwordText" name="password" type="password"/>
+        <label for="passwordText" id="passwordTextError" class="text-danger text-bold d-none">Input password!</label>
+    </div>
+    <div class="mb-3">
+        <label for="passwordText" class="form-label">Confirm Password</label>
+        <input class="form-control" id="passwordText2" name="password2" type="password"/>
+        <label for="passwordText2" id="passwordTextError2" class="text-danger text-bold d-none">Password should the same!</label>
+    </div>
+    <button id="submitForm" type="submit" class="btn btn-primary">Register</button>
+</form>
+</body>
+
+<script>
+    let form = document.getElementById('registerForm');
+    let emailError = document.getElementById('emailTextError');
+    let email = document.getElementById('emailText');
+    let passwordError = document.getElementById('passwordTextError');
+    let passwordError2 = document.getElementById('passwordTextError2');
+    let password = document.getElementById('passwordText');
+    let password2 = document.getElementById('passwordText2');
+
+    form.addEventListener('submit', (e)=>{
+        e.preventDefault();
+        if(email.value === '') {
+            emailError.classList.remove('d-none');
+            return;
+        } else { emailError.classList.add('d-none'); }
+        if(password.value === '') {
+            passwordError.classList.remove('d-none');
+        } else if (password.value !== password2.value) {
+            passwordError2.classList.remove('d-none');
+        } else {
+            passwordError.classList.add('d-none');
+            form.submit();
+        }
+    });
+
+</script>
+</html>
