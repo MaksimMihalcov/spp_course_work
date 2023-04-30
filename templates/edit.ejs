@@ -3,28 +3,29 @@
 <%- include('./partials/head'); %>
 <body>
 <%- include('./partials/navbar'); %>
-    <div class="form_dfy">
-        <form id="frm" method="post">
-            <input type="text" hidden="true" value="<%= authorId %>" name="author_id">
-            <div class="mb-3">
-                <label for="dname" class="form-label">Dish name</label>
-                <input type="text" class="form-control" id="dname" name="dname" oninput="inputsChange();">
-            </div>
-            <div class="mb-3">
-                <label for="recipe" class="form-label">Write you recipe here</label>
-                <textarea class="form-control" id="recipe" name="recipe" rows="3" oninput="inputsChange();"></textarea>
-            </div>
-            <div class="mb-3">
-                <label for="uname" class="form-label">Your name</label>
-                <input type="text" class="form-control" id="uname" name="uname" oninput="inputsChange();">
-                <div class="form-text">All users are seen you name.</div>
-            </div>
-            <div class="d-flex flex-column w-25">
-                <label class="d-none mb-2" id="errorLabel"></label>
-                <button class="btn btn-primary w-50" type="submit" id="sbutton">Submit</button>
-            </div>
-        </form>
-    </div>
+<div class="form_dfy">
+    <form id="frm" method="post">
+        <input type="text" hidden="true" value="<%= article.author_id %>" name="author_id">
+        <input type="text" hidden="true" value="<%= article.id %>" name="id">
+        <div class="mb-3">
+            <label for="dname" class="form-label">Dish name</label>
+            <input type="text" class="form-control" id="dname" name="dname" value="<%= article.name %>" oninput="inputsChange();">
+        </div>
+        <div class="mb-3">
+            <label for="recipe" class="form-label">Write you recipe here</label>
+            <textarea class="form-control" id="recipe" name="recipe" rows="3" oninput="inputsChange();"><%= article.recipe %></textarea>
+        </div>
+        <div class="mb-3">
+            <label for="uname" class="form-label">Your name</label>
+            <input type="text" class="form-control" id="uname" name="uname" value="<%= article.author_name %>" oninput="inputsChange();">
+            <div class="form-text">All users are seen you name.</div>
+        </div>
+        <div class="d-flex flex-column w-25">
+            <label class="d-none mb-2" id="errorLabel"></label>
+            <button class="btn btn-primary w-50" type="submit" id="sbutton">Submit</button>
+        </div>
+    </form>
+</div>
 </body>
 <%- include('./partials/footer'); %>
 
@@ -54,7 +55,7 @@
         }
         $.ajax({
             type: "POST",
-            url: '/add',
+            url: '/edit',
             data: $(this).serialize(),
             success: ()=> {
                 errorLabel.classList.remove("d-none");

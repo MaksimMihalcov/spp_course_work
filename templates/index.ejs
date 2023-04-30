@@ -1,19 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
 <%- include('./partials/head'); %>
+<%- include('./partials/navbar'); %>
 <body>
-    <%- include('./partials/navbar'); %>
-    <div class="mainp">
-        <% articles.forEach(function(article) { %>
-            <div class="component">
-                <h2><%= article.name %></h2>
-                <p><%= article.recipe %></p>
-                <div class="aut">
-                    <em>Author: </em><strong><%= article.author_name %></strong>
+    <div class="search">
+        <div class="row mb-4">
+            <div class="mx-auto">
+                <div class="input-group">
+                    <input oninput="search(this);" placeholder="Search" class="form-control border rounded-pill" type="search" id="example-search-input">
                 </div>
             </div>
-        <% }); %>
+        </div>
     </div>
+    <div id="mainpp" class="mainp"></div>
 </body>
+<script>
+    const mainSection = document.getElementById('mainpp');
+
+    document.addEventListener('DOMContentLoaded', function() {
+        getArticles();
+    });
+
+    function search(obj) {
+        getArticles(obj.value);
+    }
+
+    function getArticles(name) {
+        $.ajax({
+            url: `/getArticlesByName/${name}`,
+            type: 'GET',
+            dataType: 'json',
+            success: function(articles) {
+                mainSection.innerHTML = '';
+                articles.forEach(function(article) {
+                    mainSection.innerHTML +=
+                        `<div class="component">` +
+                        ((<%= authorId %> == article.author_id)
+                            ?
+                            `<div class="actions">
+                                <a href="/edit/${article.id}">Edit</a>
+                                <form action="/delete/${article.id}" method="post">
+                                    <button type="submit" class="btn-close" aria-label="Close"></button>
+                                </form>
+                            </div>` : '') +
+                        `<h2>${article.name}</h2>
+                            <p>${article.recipe}</p>
+                            <div class="aut">
+                                <em>Author: </em><strong>${article.author_name}</strong>
+                            </div>
+                        </div>`;
+                });
+            }
+        });
+    }
+</script>
 <%- include('./partials/footer'); %>
 </html>
